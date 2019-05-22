@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "utn.h"
 #include "orquesta.h"
-#define TEXT_SIZE 50
+//#define sizeof(int) 50
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -164,9 +164,9 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
             (*contadorID)++;
             array[posicion].idOrquesta=*contadorID;
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\n getUnsignedInt: ","\n Error",1,sizeof(int),1,1,1,&array[posicion].tipoOrquesta);
-            utn_getName("Ingrese la orquesta: ","\nError",1,TEXT_SIZE,1,array[posicion].nombreOrquesta);
-            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError",1,TEXT_SIZE,1,array[posicion].lugarOrquesta);
+            utn_getUnsignedInt("\nIngrese tipo de instrumento \n1-sinfonica\n2-filarmonica\n3-camara \n","\n Error",1,sizeof(int),1,3,1,&array[posicion].tipoOrquesta);
+            utn_getName("Ingrese la orquesta: ","\nError",1,sizeof(int),1,array[posicion].nombreOrquesta);
+            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError",1,sizeof(int),1,array[posicion].lugarOrquesta);
             printf("\n Posicion: %d\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s",
                    posicion,array[posicion].idOrquesta,array[posicion].tipoOrquesta,array[posicion].nombreOrquesta,array[posicion].lugarOrquesta);
             retorno=0;
@@ -190,7 +190,8 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
     int id;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
+        orquesta_listar(array,sizeArray);
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,20000,1,&id);          //cambiar si no se busca por ID
         if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -201,7 +202,6 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
             array[posicion].idOrquesta=0;                                                                   //cambiar campo id
             array[posicion].tipoOrquesta=0;                                                               //cambiar campo tipoOrquesta
             strcpy(array[posicion].nombreOrquesta,"");                                                   //cambiar campo nombreOrquesta
-            strcpy(array[posicion].lugarOrquesta,"");                                               //cambiar campo lugarOrquesta
             retorno=0;
         }
     }
@@ -242,12 +242,12 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
 
 //*****************************************
 //Modificar
-/** \brief Busca un elemento por ID y modifica sus campos
+/*/** \brief Busca un elemento por ID y modifica sus campos
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
-*/
+*
 int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orquesta
 {
     int retorno=-1;
@@ -274,10 +274,10 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
                         utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipoOrquesta);
                         break;
                     case 'B':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombreOrquesta);
+                        utn_getName("\n: ","\nError",1,sizeof(int),1,array[posicion].nombreOrquesta);
                         break;
                     case 'C':
-                        utn_getTexto("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].lugarOrquesta);
+                        utn_getTexto("\n: ","\nError",1,sizeof(int),1,array[posicion].lugarOrquesta);
                         break;
                     case 'S':
                         break;
@@ -291,24 +291,24 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
     return retorno;
 }
 
-//*****************************************
 
-/** \brief Ordena por campo XXXXX los elementos de un array
+
+ \brief Ordena por campo XXXXX los elementos de un array
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
-*/
+*
 int orquesta_ordenarPorString(Orquesta array[],int size)
 {
     int retorno=-1;
     int i, j;
-    char bufferString[TEXT_SIZE];
+    char bufferString[sizeof(int)];
     int bufferId;
     int bufferIsEmpty;
 
     int bufferInt;
-    char bufferLongString[TEXT_SIZE];
+    char bufferLongString[sizeof(int)];
 
     if(array!=NULL && size>=0)
     {
@@ -346,15 +346,14 @@ int orquesta_ordenarPorString(Orquesta array[],int size)
     return retorno;
 }
 
-//*****************************************
-//Listar
-/** \brief Lista los elementos de un array
+Listar
+* \brief Lista los elementos de un array
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int orquesta_listar(Orquesta array[], int size)                      //cambiar orquesta
+int orquesta_listar(Orquesta array[], int size)
 {
     int retorno=-1;
     int i;

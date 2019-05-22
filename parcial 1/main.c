@@ -3,15 +3,15 @@
 #include <string.h>
 #include "utn.h"
 #include "orquesta.h"
-#define QTY_TIPO 3
+#define QTY_ORQUESTA 50
 
 int main()
 {
     int opcion;
     int contadorIdorquesta=0;
 
-    Orquesta arrayOrquesta[QTY_TIPO];
-    orquesta_Inicializar(arrayOrquesta,QTY_TIPO);
+    Orquesta arrayOrquesta[QTY_ORQUESTA];
+    orquesta_Inicializar(arrayOrquesta,QTY_ORQUESTA);
 
     do
     {
@@ -20,22 +20,22 @@ int main()
         switch(opcion)
         {
             case 1:
-                orquesta_alta(arrayOrquesta,QTY_TIPO,&contadorIdorquesta);
+                orquesta_alta(arrayOrquesta,QTY_ORQUESTA,&contadorIdorquesta);
                 break;
 
             case 2:
-                orquesta_modificar(arrayOrquesta,QTY_TIPO);
+                //orquesta_modificar(arrayOrquesta,QTY_ORQUESTA);
                 break;
 
             case 3:
-                orquesta_baja(arrayOrquesta,QTY_TIPO);
+                orquesta_baja(arrayOrquesta,QTY_ORQUESTA);
 
             case 4:
-                orquesta_listar(arrayOrquesta,QTY_TIPO);
+                orquesta_listar(arrayOrquesta,QTY_ORQUESTA);
                 break;
 
             case 5:
-                //orquesta_orquestaPorString(arrayOrquesta,QTY_TIPO);
+                //orquesta_orquestaPorString(arrayOrquesta,QTY_ORQUESTA);
                 break;
 
             case 6:

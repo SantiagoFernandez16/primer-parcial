@@ -23,3 +23,27 @@
 	<string.h>
 	"utn.h"
 
+1558040770 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"orquesta.h"
+
+1558040770 c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.h
+
+1558040770 c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.h
+
+1558040770 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1558040770 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+

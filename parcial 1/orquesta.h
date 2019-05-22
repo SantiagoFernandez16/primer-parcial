@@ -1,6 +1,6 @@
 #ifndef ORQUESTA_H
 #define ORQUESTA_H
-#define LEN 50
+#define LEN 20
 typedef struct
 {
     int idOrquesta;
