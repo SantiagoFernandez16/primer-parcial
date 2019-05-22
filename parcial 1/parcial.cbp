@@ -31,8 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="instrumentos.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="intrumentos.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="musico.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="musicos.h" />

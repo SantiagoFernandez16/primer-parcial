@@ -1,13 +1,15 @@
 #ifndef INSTRUMENTO_H
 #define INSTRUMENTO_H
-#define LEN 50
+#define LEN_INSTRUMENTOS 50
 typedef struct
 {
     int idInstrumento;
     int isEmpty;
 
-    char nombreInstrumento[LEN];
-    char tipoIntrumento;
+    char nombreInstrumento[LEN_INSTRUMENTOS];
+    int tipoInstrumento;
+
+    int idMusico;
 
 }Instrumento;
 #endif // INSTRUMENTO_H

@@ -47,3 +47,48 @@
 	<string.h>
 	"utn.h"
 
+1558568299 source:c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+	"orquesta.h"
+	"musicos.h"
+	"intrumentos.h"
+
+1558561348 c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\utn.h
+
+1558561348 c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\orquesta.h
+
+1558566811 source:c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\instrumentos.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"intrumentos.h"
+
+1558568490 c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\intrumentos.h
+
+1558563000 source:c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+	"musicos.h"
+
+1558565356 c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\musicos.h
+
+1558562226 source:c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1558561348 source:c:\users\alumno\downloads\primer-parcial-master\primer-parcial-master\parcial 1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
