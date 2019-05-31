@@ -17,8 +17,8 @@ int main()
     int contadorIdorquesta=0;
     //int auxIdCancelado;
     //int contadorIdOrquesta=0;
-   // int contadorIdMusico=0;
-   // int contadorIdInstrumento=0;
+    //int contadorIdMusico=0;
+    //int contadorIdInstrumento=0;
 
     Orquesta arrayOrquesta[QTY_ORQUESTA];
     //Musico arrayMusico[QTY_MUSICO];

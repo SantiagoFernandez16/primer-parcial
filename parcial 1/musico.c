@@ -189,11 +189,12 @@ int musico_alta(Musico array[], int size, int* contadorID,Orquesta arrayOrquesta
                    posicion, array[posicion].idOrquesta,
                    array[posicion].edadMusico,
                    array[posicion].idMusico,
-                   array[posicion].IdInstrumento,
                    array[posicion].nombreMusico,
                    array[posicion].apellidoMusico);
     }
     return retorno;
+
+
 }
 
 //*****************************************
@@ -309,11 +310,12 @@ int musico_modificar(Musico array[], int sizeArray)          ///cambiar musico
             }while(opcion!='S');
             retorno=0;
         }
+
     }
     return retorno;
 }
 
-***************************************
+//***************************************
 //Ordenar
 /**
 * \brief Ordena por campo XXXXX los elementos de un array
@@ -323,11 +325,12 @@ int musico_modificar(Musico array[], int sizeArray)          ///cambiar musico
 *
 */
 int musico_ordenarPorString(Musico array[],int size)
-    int retorno=-1;
+{
     int i, j;
     char bufferString[sizeof(int)];
     int bufferId;
     int bufferIsEmpty;
+    int retorno=-1;
 
     int bufferInt;
     char bufferApellidoMusico[sizeof(int)];
@@ -367,7 +370,7 @@ int musico_ordenarPorString(Musico array[],int size)
     return retorno;
 }
 
-****************************************
+//****************************************
 //Listar
 /** \brief Lista los elementos de un array
 * \param array musico Array de musico
@@ -375,7 +378,7 @@ int musico_ordenarPorString(Musico array[],int size)
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int musico_listar(Musico array[], int size)
+/*int musico_listar(Musico array[], int size)
 {
     int retorno=-1;
     int i;
@@ -396,6 +399,6 @@ int musico_listar(Musico array[], int size)
         retorno=0;
     }
     return retorno;
-}
+}*/
 
 
