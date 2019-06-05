@@ -164,8 +164,8 @@ int instrumento_alta(Instrumento array[], int size, int* contadorID)            
              (*contadorID)++;
             array[posicion].idInstrumento=*contadorID;
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\nIngrese tipo: \n1-Cuerdas\n2-viento-madera\n3-Viento-metal\n4-percusion\n : ","\nError",1,sizeof(int),1,4,1,&array[posicion].tipoInstrumento);
-            utn_getName("\nIngrese nombre de instrumento: ","\nError",1,sizeof(int),1,array[posicion].nombreInstrumento);
+            utn_getUnsignedInt("\nIngrese tipo: \n1-Cuerdas\n2-viento-madera\n3-Viento-metal\n4-percusion\n : ","\nError",1,200,1,4,1,&array[posicion].tipoInstrumento);
+            utn_getName("\nIngrese nombre de instrumento: ","\nError",1,200,1,array[posicion].nombreInstrumento);
             printf("\n Posicion: %d\n ID: %d\n tipo: %d\n nombre: %s",
                    posicion,
                    array[posicion].idInstrumento,
@@ -191,7 +191,7 @@ int instrumento_baja(Instrumento array[], int sizeArray)                        
     int id;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,200,1,sizeArray,1,&id);          //cambiar si no se busca por ID
         if(instrumento_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -255,7 +255,7 @@ int instrumento_modificar(Instrumento array[], int sizeArray)          ///cambia
     char opcion;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);   ///cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a modificar: ","\nError",1,200,1,sizeArray,1,&id);   ///cambiar si no se busca por ID
         if(instrumento_buscarID(array,sizeArray,id,&posicion)==-1)                    ///cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                               ///cambiar si no se busca por ID
@@ -270,7 +270,7 @@ int instrumento_modificar(Instrumento array[], int sizeArray)          ///cambia
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipoInstrumento);  ///mensaje + cambiar campo tipoInstrumento
+                        utn_getUnsignedInt("\n: ","\nError",1,200,1,1,1,&array[posicion].tipoInstrumento);  ///mensaje + cambiar campo tipoInstrumento
                         break;
                     case 'B':
                         utn_getName("\n: ","\nError",1,sizeof(int),1,array[posicion].nombreInstrumento);     ///mensaje + cambiar campo nombreInstrumento

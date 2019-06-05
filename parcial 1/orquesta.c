@@ -165,9 +165,9 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
             (*contadorID)++;
             array[posicion].idOrquesta=*contadorID;
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\nIngrese tipo de instrumento \n1-sinfonica\n2-filarmonica\n3-camara \n","\n Error",1,sizeof(int),1,3,1,&array[posicion].tipoOrquesta);
-            utn_getName("Ingrese la orquesta: ","\nError",1,sizeof(int),1,array[posicion].nombreOrquesta);
-            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError",1,sizeof(int),1,array[posicion].lugarOrquesta);
+            utn_getUnsignedInt("\nIngrese tipo de Orquesta \n1-sinfonica\n2-filarmonica\n3-camara \n","\n Error",1,200,1,3,1,&array[posicion].tipoOrquesta);
+            utn_getName("Ingrese la orquesta: ","\nError",1,200,1,array[posicion].nombreOrquesta);
+            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError",1,200,1,array[posicion].lugarOrquesta);
             printf("\n Posicion: %d\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s",
                    posicion,array[posicion].idOrquesta,array[posicion].tipoOrquesta,array[posicion].nombreOrquesta,array[posicion].lugarOrquesta);
             retorno=0;
@@ -192,7 +192,7 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
     if(array!=NULL && sizeArray>0)
     {
         orquesta_listar(array,sizeArray);
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,20000,1,&id);          //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,200,1,20000,1,&id);          //cambiar si no se busca por ID
         if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -243,12 +243,12 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
 
 //*****************************************
 //Modificar
-/*/** \brief Busca un elemento por ID y modifica sus campos
+/** \brief Busca un elemento por ID y modifica sus campos
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
-*
+*/
 int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orquesta
 {
     int retorno=-1;
@@ -293,13 +293,13 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
 }
 
 
-
+/**
  \brief Ordena por campo XXXXX los elementos de un array
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
-*
+*/
 int orquesta_ordenarPorString(Orquesta array[],int size)
 {
     int retorno=-1;
@@ -347,11 +347,12 @@ int orquesta_ordenarPorString(Orquesta array[],int size)
     return retorno;
 }
 
-Listar
-* \brief Lista los elementos de un array
-* \param array orquesta Array de orquesta
-* \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
+//Listar
+/**
+*\brief Lista los elementos de un array
+*\param array orquesta Array de orquesta
+*\param size int Tamaño del array
+*\return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
 int orquesta_listar(Orquesta array[], int size)

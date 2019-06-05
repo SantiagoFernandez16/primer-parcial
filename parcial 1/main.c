@@ -15,20 +15,20 @@ int main()
 {
     int opcion;
     int contadorIdorquesta=0;
-    //int auxIdCancelado;
+    int auxIdCancelado=0;
     //int contadorIdOrquesta=0;
-    //int contadorIdMusico=0;
+    int contadorIdMusico=0;
     //int contadorIdInstrumento=0;
 
     Orquesta arrayOrquesta[QTY_ORQUESTA];
-    //Musico arrayMusico[QTY_MUSICO];
+    Musico arrayMusico[QTY_MUSICO];
     //Instrumento arrayInstrumento[QTY_INSTRUMENTOS];
 
 
     do
     {
-        utn_getUnsignedInt("\n\n1) Alta \n2) Baja \n3) Listar \n4) Alta del Musico \n5) Modificar Musico \n6) Baja de Musico\n7) Lstar Musicos\n8) Alta Instrumento\n9) Listar Instrumentos\10) Salir",
-                      "\nError",1,sizeof(int),1,11,1,&opcion);
+        utn_getUnsignedInt("\n\n1) Alta Orquesta \n2) Baja Orquesta \n3) Listar Orquesta \n4) Alta del Musico \n5) Modificar Musico \n6) Baja de Musico\n7) Lstar Musicos\n8) Alta Instrumento\n9) Listar Instrumentos\n10) Salir\n",
+                      "\nError",1,3000,1,11,1,&opcion);
         switch(opcion)
         {
             case 1:
@@ -37,14 +37,14 @@ int main()
 
             case 2:
                 orquesta_baja(arrayOrquesta,QTY_ORQUESTA);
-               //musico_bajaValorRepetidoInt(arrayMusico,QTY_MUSICO,auxIdCancelado);
+                musico_bajaValorRepetidoInt(arrayMusico,QTY_MUSICO,auxIdCancelado);
                 break;
 
             case 3:
                 orquesta_listar(arrayOrquesta,QTY_ORQUESTA);
 
             case 4:
-               // musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA);
+                musico_alta(arrayMusico,QTY_MUSICO,&contadorIdMusico,arrayOrquesta,QTY_ORQUESTA);
                 break;
 
             case 5:
@@ -52,17 +52,17 @@ int main()
                 break;
 
             case 6:
-               // musico_baja(arrayMusico,QTY_MUSICO);
+                //musico_baja(arrayMusico,QTY_MUSICO);
                 break;
 
             case 7:
-               // musico_listar(arrayMusico,QTY_MUSICO);
+                //musico_listar(arrayMusico,QTY_MUSICO);
                 break;
              case 8://alta instrumento
-               // instrumento_alta(arrayInstrumento,QTY_INSTRUMENTOS,&contadorIdInstrumento);
+                //instrumento_alta(arrayInstrumento,QTY_INSTRUMENTOS,&contadorIdInstrumento);
                 break;
             case 9://imprimir musicos
-               // instrumento_listar(arrayInstrumento,QTY_INSTRUMENTOS);
+                //instrumento_listar(arrayInstrumento,QTY_INSTRUMENTOS);
                 break;
             case 10://Salir
                 break;
@@ -70,6 +70,6 @@ int main()
                 printf("\nOpcion no valida");
         }
     }
-    while(opcion!=6);
+    while(opcion!=10);
     return 0;
 }

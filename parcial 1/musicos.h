@@ -1,6 +1,8 @@
 #ifndef MUSICO_H
 #define MUSICO_H
 #define LEN_MUS 50
+#include "orquesta.h"
+
 typedef struct
 {
     int idMusico;
