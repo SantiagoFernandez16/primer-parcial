@@ -27,7 +27,7 @@ int musico_buscarString(Musico array[], int size, char* valorBuscado, int* indic
 int musico_alta(Musico array[], int size, int* contadorID,Orquesta arrayOrquesta[], int sizeOrquesta);
 int musico_baja(Musico array[], int sizeArray);
 int musico_bajaValorRepetidoInt(Musico array[], int sizeArray, int valorBuscado);
-int musico_modificar(Musico array[], int sizeArray);
+int musico_modificar(Musico array[], int sizeArray,Orquesta arrayOrquesta[],int sizeOrquesta);
 int musico_ordenarPorString(Musico array[],int size);
 int musico_listar(Musico array[], int size);
 

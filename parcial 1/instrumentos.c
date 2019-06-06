@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "utn.h"
 #include "intrumentos.h"
+#include "musicos.h"
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -16,11 +17,12 @@
 int instrumento_Inicializar(Instrumento array[], int size)                                    //cambiar instrumento
 {
     int retorno=-1;
+    int i;
     if(array!= NULL && size>0)
     {
-        for(;size>0;size--)
+        for(i=0;i<size;i++)
         {
-            array[size-1].isEmpty=1;
+            array[i].isEmpty=1;
         }
         retorno=0;
     }
@@ -41,7 +43,7 @@ int instrumento_buscarEmpty(Instrumento array[], int size, int* posicion)       
 {
     int retorno=-1;
     int i;
-    if(array!= NULL && size>=0 && posicion!=NULL)
+    if(array!= NULL && size>=0)
     {
         for(i=0;i<size;i++)
         {
@@ -102,8 +104,8 @@ int instrumento_buscarInt(Instrumento array[], int size, int valorBuscado, int* 
                 continue;
             else if(array[i].tipoInstrumento==valorBuscado)                                                   //cambiar campo tipoInstrumento
             {
-                retorno=0;
                 *posicion=i;
+                retorno=0;
                 break;
             }
         }
@@ -164,13 +166,14 @@ int instrumento_alta(Instrumento array[], int size, int* contadorID)            
              (*contadorID)++;
             array[posicion].idInstrumento=*contadorID;
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\nIngrese tipo: \n1-Cuerdas\n2-viento-madera\n3-Viento-metal\n4-percusion\n : ","\nError",1,200,1,4,1,&array[posicion].tipoInstrumento);
-            utn_getName("\nIngrese nombre de instrumento: ","\nError",1,200,1,array[posicion].nombreInstrumento);
+            utn_getUnsignedInt("\nIngrese tipo: \n1-Cuerdas\n2-viento-madera\n3-Viento-metal\n4-percusion\n : ","\nError\n",1,200,1,4,1,&array[posicion].tipoInstrumento);
+            utn_getName("\nIngrese nombre de instrumento: ","\nError\n",1,200,1,array[posicion].nombreInstrumento);
             printf("\n Posicion: %d\n ID: %d\n tipo: %d\n nombre: %s",
                    posicion,
                    array[posicion].idInstrumento,
                    array[posicion].tipoInstrumento,
                    array[posicion].nombreInstrumento);
+            retorno = 0;
         }
     }
     return retorno;
@@ -247,7 +250,7 @@ int instrumento_bajaValorRepetidoInt(Instrumento array[], int sizeArray, int val
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
 */
-int instrumento_modificar(Instrumento array[], int sizeArray)          ///cambiar instrumento
+/*int instrumento_modificar(Instrumento array[], int sizeArray)          ///cambiar instrumento
 {
     int retorno=-1;
     int posicion;
@@ -287,14 +290,14 @@ int instrumento_modificar(Instrumento array[], int sizeArray)          ///cambia
     return retorno;
 }
 
-//*****************************************
+*****************************************
 //Ordenar
-/** \brief Ordena por campo XXXXX los elementos de un array
+* \brief Ordena por campo XXXXX los elementos de un array
 * \param array instrumento Array de instrumento
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
-*/
+*
 int instrumento_ordenarPorString(Instrumento array[],int size)                              ///cambiar instrumento
 {
     int retorno=-1;
@@ -336,11 +339,11 @@ int instrumento_ordenarPorString(Instrumento array[],int size)                  
         retorno=0;
     }
     return retorno;
-}
+}*/
 
-//*****************************************
-//Listar
-/** \brief Lista los elementos de un array
+/*****************************************
+Listar
+\brief Lista los elementos de un array
 * \param array instrumento Array de instrumento
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente

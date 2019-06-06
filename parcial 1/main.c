@@ -14,15 +14,18 @@
 int main()
 {
     int opcion;
-    int contadorIdorquesta=0;
+    int contadorIdOrquesta=0;
     int auxIdCancelado=0;
-    //int contadorIdOrquesta=0;
     int contadorIdMusico=0;
-    //int contadorIdInstrumento=0;
+    int contadorIdInstrumento=0;
 
     Orquesta arrayOrquesta[QTY_ORQUESTA];
     Musico arrayMusico[QTY_MUSICO];
-    //Instrumento arrayInstrumento[QTY_INSTRUMENTOS];
+    Instrumento arrayInstrumento[QTY_INSTRUMENTOS];
+
+    orquesta_Inicializar(arrayOrquesta,QTY_ORQUESTA);
+    musico_Inicializar(arrayMusico,QTY_MUSICO);
+    instrumento_Inicializar(arrayInstrumento,QTY_INSTRUMENTOS);
 
 
     do
@@ -32,11 +35,11 @@ int main()
         switch(opcion)
         {
             case 1:
-                orquesta_alta(arrayOrquesta,QTY_ORQUESTA,&contadorIdorquesta);
+                orquesta_alta(arrayOrquesta,QTY_ORQUESTA,&contadorIdOrquesta);
                 break;
 
             case 2:
-                orquesta_baja(arrayOrquesta,QTY_ORQUESTA);
+                orquesta_baja(arrayOrquesta,QTY_ORQUESTA,&auxIdCancelado);
                 musico_bajaValorRepetidoInt(arrayMusico,QTY_MUSICO,auxIdCancelado);
                 break;
 
@@ -48,21 +51,21 @@ int main()
                 break;
 
             case 5:
-                //musico_modificar(arrayMusico,QTY_MUSICO,arrayOrquesta,QTY_ORQUESTA);
+                musico_modificar(arrayMusico,QTY_MUSICO,arrayOrquesta,QTY_ORQUESTA);
                 break;
 
             case 6:
-                //musico_baja(arrayMusico,QTY_MUSICO);
+                musico_baja(arrayMusico,QTY_MUSICO);
                 break;
 
             case 7:
-                //musico_listar(arrayMusico,QTY_MUSICO);
+                musico_listar(arrayMusico,QTY_MUSICO);
                 break;
              case 8://alta instrumento
-                //instrumento_alta(arrayInstrumento,QTY_INSTRUMENTOS,&contadorIdInstrumento);
+                instrumento_alta(arrayInstrumento,QTY_INSTRUMENTOS,&contadorIdInstrumento);
                 break;
             case 9://imprimir musicos
-                //instrumento_listar(arrayInstrumento,QTY_INSTRUMENTOS);
+                instrumento_listar(arrayInstrumento,QTY_INSTRUMENTOS);
                 break;
             case 10://Salir
                 break;

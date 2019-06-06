@@ -4,7 +4,9 @@
 #include "utn.h"
 #include "musicos.h"
 #include "orquesta.h"
-
+#define SINFONICA 1
+#define FILARMONICA 2
+#define CAMARA 3
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -18,11 +20,12 @@
 int orquesta_Inicializar(Orquesta array[], int size)
 {
     int retorno=-1;
+    int i;
     if(array!= NULL && size>0)
     {
-        for(;size>0;size--)
+        for(i=0;i<size;i++)
         {
-            array[size-1].isEmpty=1;
+            array[i].isEmpty=1;
         }
         retorno=0;
     }
@@ -158,16 +161,16 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
     {
         if(orquesta_buscarEmpty(array,size,&posicion)==-1)
         {
-            printf("\nNo hay lugares vacios");
+            printf("\nNo hay lugares vacios\n");
         }
         else
         {
             (*contadorID)++;
             array[posicion].idOrquesta=*contadorID;
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\nIngrese tipo de Orquesta \n1-sinfonica\n2-filarmonica\n3-camara \n","\n Error",1,200,1,3,1,&array[posicion].tipoOrquesta);
-            utn_getName("Ingrese la orquesta: ","\nError",1,200,1,array[posicion].nombreOrquesta);
-            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError",1,200,1,array[posicion].lugarOrquesta);
+            utn_getUnsignedInt("\nIngrese tipo de Orquesta \n1-sinfonica\n2-filarmonica\n3-camara \n","\n Error\n",1,200,1,3,1,&array[posicion].tipoOrquesta);
+            utn_getName("Ingrese la orquesta: ","\nError\n",1,200,1,array[posicion].nombreOrquesta);
+            utn_getTexto("Ingrese el lugar de la orquesta: ","\nError\n",1,200,1,array[posicion].lugarOrquesta);
             printf("\n Posicion: %d\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s",
                    posicion,array[posicion].idOrquesta,array[posicion].tipoOrquesta,array[posicion].nombreOrquesta,array[posicion].lugarOrquesta);
             retorno=0;
@@ -184,7 +187,7 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int orquesta_baja(Orquesta array[], int sizeArray)                                      //cambiar orquesta
+int orquesta_baja(Orquesta array[],int sizeArray, int *idCancelado)                                      //cambiar orquesta
 {
     int retorno=-1;
     int posicion;
@@ -192,17 +195,15 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
     if(array!=NULL && sizeArray>0)
     {
         orquesta_listar(array,sizeArray);
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,200,1,20000,1,&id);          //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError\n",1,200,1,20000,1,&id);          //cambiar si no se busca por ID
         if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
         }
         else
         {
-            array[posicion].isEmpty=1;
-            array[posicion].idOrquesta=0;                                                                   //cambiar campo id
-            array[posicion].tipoOrquesta=0;                                                               //cambiar campo tipoOrquesta
-            strcpy(array[posicion].nombreOrquesta,"");                                                   //cambiar campo nombreOrquesta
+             array[posicion].isEmpty=1;
+            *idCancelado = posicion;
             retorno=0;
         }
     }
@@ -243,12 +244,12 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
 
 //*****************************************
 //Modificar
-/** \brief Busca un elemento por ID y modifica sus campos
+/* \brief Busca un elemento por ID y modifica sus campos
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
-*/
+*
 int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orquesta
 {
     int retorno=-1;
@@ -257,7 +258,7 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
     char opcion;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);   ///cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a modificar: ","\nError\n",1,200,1,sizeArray,1,&id);   ///cambiar si no se busca por ID
         if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                    ///cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                               ///cambiar si no se busca por ID
@@ -266,19 +267,19 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
         {
             do
             {
-                printf("\n Posicion: %d\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s",
+                printf("\n Posicion: %d\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s\n",
                        posicion, array[posicion].idOrquesta,array[posicion].tipoOrquesta,array[posicion].nombreOrquesta,array[posicion].lugarOrquesta);
-                utn_getChar("\nModificar: A B C  S(salir)","\nError",'A','Z',1,&opcion);
+                utn_getChar("\nModificar: A B C  S(salir)","\nError\n",'A','Z',1,&opcion);
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipoOrquesta);
+                        utn_getUnsignedInt("\n: ","\nError\n",1,200,1,1,1,&array[posicion].tipoOrquesta);
                         break;
                     case 'B':
-                        utn_getName("\n: ","\nError",1,sizeof(int),1,array[posicion].nombreOrquesta);
+                        utn_getName("\n: ","\nError\n",1,200,1,array[posicion].nombreOrquesta);
                         break;
                     case 'C':
-                        utn_getTexto("\n: ","\nError",1,sizeof(int),1,array[posicion].lugarOrquesta);
+                        utn_getTexto("\n: ","\nError\n",1,200,1,array[posicion].lugarOrquesta);
                         break;
                     case 'S':
                         break;
@@ -293,13 +294,13 @@ int orquesta_modificar(Orquesta array[], int sizeArray)          ///cambiar orqu
 }
 
 
-/**
+
  \brief Ordena por campo XXXXX los elementos de un array
 * \param array orquesta Array de orquesta
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
-*/
+*
 int orquesta_ordenarPorString(Orquesta array[],int size)
 {
     int retorno=-1;
@@ -348,7 +349,7 @@ int orquesta_ordenarPorString(Orquesta array[],int size)
 }
 
 //Listar
-/**
+
 *\brief Lista los elementos de un array
 *\param array orquesta Array de orquesta
 *\param size int Tamaño del array
@@ -366,11 +367,35 @@ int orquesta_listar(Orquesta array[], int size)
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n tipoOrquesta: %d\n nombreOrquesta: %s\n lugarOrquesta: %s",
-                       array[i].idOrquesta,array[i].tipoOrquesta,array[i].nombreOrquesta,array[i].lugarOrquesta);      //cambiar todos
+                printf("\n\n Posicion: %d\n ID: %d\n nombre: %s\n lugar: %s",
+                                       i, array[i].idOrquesta,
+                                       array[i].nombreOrquesta,
+                                       array[i].lugarOrquesta);
+                                       orquesta_mostrarTipo(array[i].tipoOrquesta);      //cambiar todos
         }
         retorno=0;
     }
     return retorno;
 }
-
+/** \brief Muestra el tipo de orquesta en forma de texto por pantalla.
+* \param tipoOrquesta int tipo de orquesta
+* \return int Return (0)
+*
+*/
+int orquesta_mostrarTipo(int tipoOrquesta)
+{
+    printf("\n");
+    switch (tipoOrquesta)
+    {
+        case SINFONICA:
+            printf(" Tipo :Sinfonica");
+            break;
+        case FILARMONICA:
+            printf(" Tipo :Filarmonica");
+            break;
+        case CAMARA:
+            printf(" Tipo :Camara");
+            break;
+    }
+    return 0;
+}

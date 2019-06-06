@@ -1,7 +1,11 @@
 #ifndef INSTRUMENTO_H
 #define INSTRUMENTO_H
 #define LEN_INSTRUMENTOS 50
-#include "musicos.h"
+
+#define CUERDAS 1
+#define VIENTO_MADERA 2
+#define VIENTO_METAL 3
+#define PERCUSION 4
 
 typedef struct
 {
