@@ -23,7 +23,7 @@
 	<string.h>
 	"utn.h"
 
-1559759970 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\main.c
+1559853452 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -31,12 +31,13 @@
 	"orquesta.h"
 	"musicos.h"
 	"intrumentos.h"
+	"informes.h"
 
-1559251290 c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.h
+1559769114 c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.h
 
-1559251290 c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.h
+1559840933 c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.h
 
-1559761502 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.c
+1559840811 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\orquesta.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -44,7 +45,7 @@
 	"musicos.h"
 	"orquesta.h"
 
-1559251290 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.c
+1559769114 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -99,20 +100,20 @@
 	<string.h>
 	"utn.h"
 
-1559766439 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\instrumentos.c
+1559840670 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\instrumentos.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"intrumentos.h"
-
-1559759567 c:\users\omar\desktop\primer-parcial-master\parcial 1\intrumentos.h
 	"musicos.h"
 
-1559747525 c:\users\omar\desktop\primer-parcial-master\parcial 1\musicos.h
+1559840670 c:\users\omar\desktop\primer-parcial-master\parcial 1\intrumentos.h
+
+1559850381 c:\users\omar\desktop\primer-parcial-master\parcial 1\musicos.h
 	"orquesta.h"
 
-1559760960 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\musico.c
+1559850381 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\musico.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -120,4 +121,18 @@
 	"musicos.h"
 	"orquesta.h"
 	"intrumentos.h"
+
+1559853452 source:c:\users\omar\desktop\primer-parcial-master\parcial 1\informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"intrumentos.h"
+	"musicos.h"
+	"orquesta.h"
+
+1559853482 c:\users\omar\desktop\primer-parcial-master\parcial 1\informes.h
+	"intrumentos.h"
+	"musicos.h"
+	"orquesta.h"
 

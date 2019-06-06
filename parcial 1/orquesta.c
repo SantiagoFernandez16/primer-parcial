@@ -399,3 +399,23 @@ int orquesta_mostrarTipo(int tipoOrquesta)
     }
     return 0;
 }
+
+/** \brief devuelve la cantidad de orquestas activas
+* \param array orquesta Array de orquesta
+* \param size int Tamaño del array
+* \return int Return (0) si no hay orquestas (>0) si encontro orquestas activas
+*
+*/
+int orquesta_cantidadDeOrquestas(Orquesta array[], int size)
+{
+    int i;
+    int cantidadDeOrquestas=0;
+    for (i=0;i<size;i++)
+    {
+        if (!array[i].isEmpty)
+        {
+            cantidadDeOrquestas++;
+        }
+    }
+    return cantidadDeOrquestas;
+}

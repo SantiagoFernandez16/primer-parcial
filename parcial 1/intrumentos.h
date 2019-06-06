@@ -32,4 +32,6 @@ int instrumento_bajaValorRepetidoInt(Instrumento array[], int sizeArray, int val
 int instrumento_modificar(Instrumento array[], int sizeArray);
 int instrumento_ordenarPorString(Instrumento array[],int size);
 int instrumento_listar(Instrumento array[], int size);
+int instrumento_mostrarTipo(int tipoInstrumento);
+
 

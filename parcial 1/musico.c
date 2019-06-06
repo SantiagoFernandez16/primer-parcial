@@ -413,4 +413,17 @@ int musico_listar(Musico array[], int size)
     return retorno;
 }
 
+int musico_cantidadMusicos(Musico array[], int size)
+{
+    int i;
+    int cantidadMusicos=0;
+    for (i=0;i<size;i++)
+    {
+        if (!array[i].isEmpty)
+        {
+            cantidadMusicos++;
+        }
+    }
+    return cantidadMusicos;
+}
 

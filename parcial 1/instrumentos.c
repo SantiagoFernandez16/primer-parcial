@@ -367,4 +367,28 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
     }
     return retorno;
 }
-
+/** \brief Muesta el tipo de intrumento en formato de texto por pantalla
+* \param tipoInstrumento int tipo del instrumento
+* \return int Return (0)
+*
+*/
+int instrumento_mostrarTipo(int tipoInstrumento)
+{
+    printf("\n");
+    switch (tipoInstrumento)
+    {
+        case CUERDAS:
+            printf(" Tipo :Cuerdas");
+            break;
+        case VIENTO_MADERA:
+            printf(" Tipo :viento madera");
+            break;
+        case VIENTO_METAL:
+            printf(" Tipo :viento metal");
+            break;
+        case PERCUSION:
+            printf(" Tipo :percusion");
+            break;
+    }
+    return 0;
+}

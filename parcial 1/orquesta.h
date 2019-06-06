@@ -12,6 +12,8 @@ typedef struct
     char nombreOrquesta[LEN];
     int tipoOrquesta;
     char lugarOrquesta[LEN];
+    int cantidadMusicos;
+
 
 }Orquesta;
 #endif // ORQUESTA_H
@@ -29,4 +31,6 @@ int orquesta_modificar(Orquesta array[], int sizeArray);
 int orquesta_ordenarPorString(Orquesta array[],int size);
 int orquesta_listar(Orquesta array[], int size);
 int orquesta_mostrarTipo(int tipoOrquesta);
+int orquesta_cantidadDeOrquestas(Orquesta array[], int size);
+
 
